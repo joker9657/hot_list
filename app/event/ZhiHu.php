@@ -4,7 +4,7 @@ namespace app\event;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 use support\Redis;
 
 class ZhiHu
