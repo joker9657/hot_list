@@ -19,18 +19,18 @@ class RuanyifengWeekly
         // 获取阮一峰周刊 module-content 第一个ul下面的全部li内容
         try {
             $list = QueryList::get(self::url)
-                ->find('#alpha ul:first li')
-                ->map(function ($item) {
-                    $title = $item->find('a')->html();
-                    $url = $item->find('a')->attr('href');
-                    return [
-                        'title'       => str_replace('[email protected]', '', $title),
-                        'url'         => $url,
-                        'subtitle'    => 0,
-                        'date'        => Carbon::now()->toDateString(),
-                        'create_time' => Carbon::now()->toDateTimeString()
-                    ];
-                });
+                             ->find('#alpha ul:first li')
+                             ->map(function ($item) {
+                                 $title = $item->find('a')->html();
+                                 $url = $item->find('a')->attr('href');
+                                 return [
+                                     'title'       => str_replace('[email protected]', '', $title),
+                                     'url'         => $url,
+                                     'subtitle'    => 0,
+                                     'date'        => Carbon::now()->toDateString(),
+                                     'create_time' => Carbon::now()->toDateTimeString()
+                                 ];
+                             });
             $list = json_encode($list, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
             Redis::set(self::alias, $list);
             Redis::set(self::alias . '-time', Carbon::now()->toDateTimeString());

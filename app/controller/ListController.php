@@ -5,28 +5,34 @@ namespace app\controller;
 
 
 use support\Redis;
+use support\Request;
+use support\Response;
 use Webman\Event\Event;
 
 class ListController
 {
-    public function test()
+    /**
+     * @description hot list data
+     * @param Request $request
+     * @param string $alias
+     * @return Response
+     */
+    public function index(Request $request, string $alias): Response
     {
         try {
-
-            Event::dispatch('ruanyifeng-weekly', null);
+            if (!$alias) {
+                throw new \RuntimeException('param error');
+            }
             return json([
                 'code' => 200,
-                'msg'  => 'success'
+                'msg'  => 'success',
+                'data' => json_decode(Redis::get($alias), true)
             ]);
-        } catch (\Exception $e) {
-            dump($e->getMessage());
+        } catch (\Throwable $e) {
+            return json([
+                'code' => 500,
+                'msg'  => $e->getMessage()
+            ]);
         }
-    }
-
-    public function index()
-    {
-        $data = Redis::get('ruanyifeng-weekly');
-        $data = json_decode($data, true);
-        return json($data);
     }
 }

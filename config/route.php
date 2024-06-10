@@ -13,13 +13,11 @@
  */
 
 use app\controller\ListController;
-use app\controller\NewsController;
 use Webman\Route;
 
 Route::group('/api', function () {
 
-    Route::get('/zhihu', [ListController::class, 'index']);
-    Route::get('/test', [ListController::class, 'test']);
+    Route::get('/{alias}', [ListController::class, 'index']);
 });
 
 // 给所有OPTIONS请求设置跨域
@@ -27,7 +25,7 @@ Route::options('[{path:.+}]', function () {
     return response('');
 });
 //自定义404
-Route::fallback(fn () => json(['code' => 405, 'msg' => 'not found']));
+Route::fallback(fn() => json(['code' => 405, 'msg' => 'not found']));
 Route::disableDefaultRoute();
 
 
