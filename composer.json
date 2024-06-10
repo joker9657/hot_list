@@ -33,7 +33,8 @@
     "illuminate/events": "^8.83",
     "workerman/crontab": "^1.0",
     "webman/event": "^1.0",
-    "ext-json": "*"
+    "ext-json": "*",
+    "vlucas/phpdotenv": "^5.5"
   },
   "suggest": {
     "ext-event": "For better performance. "
