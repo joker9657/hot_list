@@ -40,6 +40,6 @@ return [
         ]
     ],
     'task'    => [
-        'handle' => process\Task::class
+        'handler' => process\Task::class
     ]
 ];
