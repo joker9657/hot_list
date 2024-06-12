@@ -7,7 +7,6 @@ namespace app\controller;
 use support\Redis;
 use support\Request;
 use support\Response;
-use Webman\Event\Event;
 
 class ListController
 {

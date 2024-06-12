@@ -2,19 +2,17 @@
 
 namespace app\event;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 use support\Redis;
 
-class ZhiHu
+class Toutiao
 {
-    //知乎的热榜接口可以直接请求
-    public const url = 'https://www.zhihu.com/api/v4/feed/topstory/hot-lists/total?limit=30';
+    public const url = 'https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc';
 
     public const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36';
 
-    public const alias = 'zhihu';
+    public const alias = 'toutiao';
 
     /**
      * 更新知乎热榜
@@ -23,6 +21,7 @@ class ZhiHu
     public function update(): void
     {
         try {
+            $host = 'https://www.toutiao.com/trending/';
             $client = new Client();
             $res = json_decode($client->get(self::url, [
                 'headers' => [
@@ -33,19 +32,17 @@ class ZhiHu
 
             $insertData = [];
             foreach ($res['data'] as $item) {
-                $title = $item['target']['title'];
-                $url = "https://www.zhihu.com/question/{$item['target']['id']}";
-                $hot = explode(' ', $item['detail_text']);
-                $subtitle = $hot[0] ?? 0;
+                $title = $item['Title'];
+                $url = $host . $item['ClusterIdStr'];
+                $subtitle = $item['HotValue'];
                 $insertData[] = [
                     'title'       => $title,
                     'url'         => $url,
-                    'subtitle'    => $subtitle * 10000,
+                    'subtitle'    => $subtitle,
                     'date'        => Carbon::now()->toDateString(),
                     'create_time' => Carbon::now()->toDateTimeString()
                 ];
             }
-
             if (empty($insertData)) return;
             $list = json_encode($insertData, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
             //redis缓存 记录json数据和更新时间
@@ -53,9 +50,8 @@ class ZhiHu
             Redis::set(self::alias . '-time', Carbon::now()->toDateTimeString());
 
             dump(date('Y-m-d H:i:s') . '更新' . self::alias . '成功');
-        } catch (GuzzleException|\Exception $exception) {
-            dump('更新' . self::alias . '异常：' . $exception->getMessage());
-            dump($exception);
+        } catch (\Throwable $e) {
+            dump('更新' . self::alias . '异常：' . $e->getMessage());
         }
     }
 }

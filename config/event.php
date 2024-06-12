@@ -1,6 +1,7 @@
 <?php
 
 use app\event\RuanyifengWeekly;
+use app\event\Toutiao;
 use app\event\ZhiHu;
 
 return [
@@ -11,5 +12,9 @@ return [
     // 阮一峰周刊
     RuanyifengWeekly::alias => [
         [RuanyifengWeekly::class, 'update']
+    ],
+    //头条热榜
+    Toutiao::alias          => [
+        [Toutiao::class, 'update']
     ]
 ];

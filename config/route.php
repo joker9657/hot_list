@@ -17,7 +17,10 @@ use Webman\Route;
 
 Route::group('/api', function () {
 
-    Route::get('/{alias}', [ListController::class, 'index']);
+    Route::get('/hot/{alias}', [ListController::class, 'index']);
+    Route::get('/test', function () {
+        \Webman\Event\Event::emit('toutiao', null);
+    });
 });
 
 // 给所有OPTIONS请求设置跨域
