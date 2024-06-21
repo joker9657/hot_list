@@ -16,7 +16,7 @@ use app\controller\ListController;
 use Webman\Route;
 
 Route::group('/api', function () {
-
+    Route::get('/category', [ListController::class, 'category']);
     Route::get('/hot/{alias}', [ListController::class, 'index']);
     Route::get('/test', function () {
         \Webman\Event\Event::emit('toutiao', null);

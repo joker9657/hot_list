@@ -34,4 +34,24 @@ class ListController
             ]);
         }
     }
+
+    /**
+     * @description category list data
+     * @return Response
+     */
+    public function category(): Response
+    {
+        try {
+            return json([
+                'code' => 200,
+                'msg'  => 'success',
+                'data' => config('category')
+            ]);
+        } catch (\Throwable $e) {
+            return json([
+                'code' => 500,
+                'msg'  => $e->getMessage()
+            ]);
+        }
+    }
 }
