@@ -15,16 +15,19 @@ $type = [
 ];
 $category = [
     [
+        'id'        => 1,
         'title'     => '知乎',
         'alias'     => ZhiHu::alias,
         'parent_id' => 1
     ],
     [
+        'id'        => 2,
         'title'     => '头条',
         'alias'     => Toutiao::alias,
         'parent_id' => 1
     ],
     [
+        'id'        => 3,
         'title'     => '阮一峰周刊',
         'alias'     => RuanyifengWeekly::alias,
         'parent_id' => 2
