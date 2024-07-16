@@ -40,7 +40,7 @@ class ZhiHu
                 $insertData[] = [
                     'title'       => $title,
                     'url'         => $url,
-                    'subtitle'    => $subtitle * 10000,
+                    'subtitle'    => (int)$subtitle * 10000,
                     'date'        => Carbon::now()->toDateString(),
                     'create_time' => Carbon::now()->toDateTimeString()
                 ];

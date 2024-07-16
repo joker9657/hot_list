@@ -38,7 +38,7 @@ class Toutiao
                 $insertData[] = [
                     'title'       => $title,
                     'url'         => $url,
-                    'subtitle'    => $subtitle,
+                    'subtitle'    => (int)$subtitle,
                     'date'        => Carbon::now()->toDateString(),
                     'create_time' => Carbon::now()->toDateTimeString()
                 ];
