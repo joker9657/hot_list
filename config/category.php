@@ -18,19 +18,25 @@ $category = [
         'id'        => 1,
         'title'     => '知乎',
         'alias'     => ZhiHu::alias,
-        'parent_id' => 1
+        'parent_id' => 1,
+        'icon'      => 'icon-zhihu',
+        'logo'      => '/logo/zhihu.svg'
     ],
     [
         'id'        => 2,
-        'title'     => '头条',
+        'title'     => '今日头条',
         'alias'     => Toutiao::alias,
-        'parent_id' => 1
+        'parent_id' => 1,
+        'icon'      => 'icon-jinritoutiao',
+        'logo'      => '/logo/toutiao.svg'
     ],
     [
         'id'        => 3,
         'title'     => '阮一峰周刊',
         'alias'     => RuanyifengWeekly::alias,
-        'parent_id' => 2
+        'parent_id' => 2,
+        'icon'      => '',
+        'logo'      => ''
     ]
 ];
 return [
