@@ -2,6 +2,7 @@
 
 use app\event\RuanyifengWeekly;
 use app\event\Toutiao;
+use app\event\Weibo;
 use app\event\ZhiHu;
 
 $type = [
@@ -16,7 +17,7 @@ $type = [
 $category = [
     [
         'id'        => 1,
-        'title'     => '知乎',
+        'title'     => '知乎 · 热榜',
         'alias'     => ZhiHu::alias,
         'parent_id' => 1,
         'icon'      => 'icon-zhihu',
@@ -37,6 +38,14 @@ $category = [
         'parent_id' => 2,
         'icon'      => '',
         'logo'      => ''
+    ],
+    [
+        'id'        => 4,
+        'title'     => '微博 · 热搜榜',
+        'alias'     => Weibo::alias,
+        'parent_id' => 1,
+        'icon'      => 'icon-xinlangweibo',
+        'logo'      => '/logo/weibo.svg'
     ]
 ];
 return [

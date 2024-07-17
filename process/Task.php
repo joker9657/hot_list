@@ -4,6 +4,7 @@ namespace process;
 
 use app\event\RuanyifengWeekly;
 use app\event\Toutiao;
+use app\event\Weibo;
 use app\event\ZhiHu;
 use Webman\Event\Event;
 use Workerman\Crontab\Crontab;
@@ -21,5 +22,8 @@ class Task
         new Crontab('*/6 * * * *', function () {
             Event::dispatch(Toutiao::alias, null);
         }); // 每六分钟执行
+        new Crontab('*/2 * * * *', function () {
+            Event::dispatch(Weibo::alias, null);
+        }); // 每五分钟执行
     }
 }
