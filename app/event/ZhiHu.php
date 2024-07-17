@@ -38,11 +38,9 @@ class ZhiHu
                 $hot = explode(' ', $item['detail_text']);
                 $subtitle = $hot[0] ?? 0;
                 $insertData[] = [
-                    'title'       => $title,
-                    'url'         => $url,
-                    'subtitle'    => (int)$subtitle * 10000,
-                    'date'        => Carbon::now()->toDateString(),
-                    'create_time' => Carbon::now()->toDateTimeString()
+                    'title'    => $title,
+                    'url'      => $url,
+                    'subtitle' => (int)$subtitle * 10000
                 ];
             }
 

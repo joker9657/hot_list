@@ -36,11 +36,9 @@ class Toutiao
                 $url = $host . $item['ClusterIdStr'];
                 $subtitle = $item['HotValue'];
                 $insertData[] = [
-                    'title'       => $title,
-                    'url'         => $url,
-                    'subtitle'    => (int)$subtitle,
-                    'date'        => Carbon::now()->toDateString(),
-                    'create_time' => Carbon::now()->toDateTimeString()
+                    'title'    => $title,
+                    'url'      => $url,
+                    'subtitle' => (int)$subtitle
                 ];
             }
             if (empty($insertData)) return;

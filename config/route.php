@@ -18,9 +18,9 @@ use Webman\Route;
 Route::group('/api', function () {
     Route::get('/category', [ListController::class, 'category']);
     Route::get('/hot/{alias}', [ListController::class, 'index']);
-    Route::get('/test', function () {
-        \Webman\Event\Event::emit('toutiao', null);
-    });
+//    Route::get('/test', function () {
+//        \Webman\Event\Event::emit('weibo', null);
+//    });
 });
 
 // 给所有OPTIONS请求设置跨域

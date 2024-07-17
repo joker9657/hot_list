@@ -24,11 +24,9 @@ class RuanyifengWeekly
                                  $title = $item->find('a')->html();
                                  $url = $item->find('a')->attr('href');
                                  return [
-                                     'title'       => str_replace('[email protected]', '', $title),
-                                     'url'         => $url,
-                                     'subtitle'    => 0,
-                                     'date'        => Carbon::now()->toDateString(),
-                                     'create_time' => Carbon::now()->toDateTimeString()
+                                     'title'    => str_replace('[email protected]', '', $title),
+                                     'url'      => $url,
+                                     'subtitle' => 0,
                                  ];
                              });
             $list = json_encode($list, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
