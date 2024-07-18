@@ -19,7 +19,7 @@ Route::group('/api', function () {
     Route::get('/category', [ListController::class, 'category']);
     Route::get('/hot/{alias}', [ListController::class, 'index']);
 //    Route::get('/test', function () {
-//        \Webman\Event\Event::emit('weibo', null);
+//        \Webman\Event\Event::emit('hupu', null);
 //    });
 });
 

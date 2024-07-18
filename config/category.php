@@ -1,5 +1,6 @@
 <?php
 
+use app\event\Hupu;
 use app\event\RuanyifengWeekly;
 use app\event\Toutiao;
 use app\event\Weibo;
@@ -46,6 +47,14 @@ $category = [
         'parent_id' => 1,
         'icon'      => 'icon-xinlangweibo',
         'logo'      => '/logo/weibo.svg'
+    ],
+    [
+        'id'        => 5,
+        'title'     => '虎扑 · 步行街',
+        'alias'     => Hupu::alias,
+        'parent_id' => 3,
+        'icon'      => 'icon-hupu',
+        'logo'      => '/logo/hupu.svg'
     ]
 ];
 return [

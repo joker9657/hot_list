@@ -1,5 +1,6 @@
 <?php
 
+use app\event\Hupu;
 use app\event\RuanyifengWeekly;
 use app\event\Toutiao;
 use app\event\Weibo;
@@ -21,5 +22,9 @@ return [
     //微博热搜
     Weibo::alias            => [
         [Weibo::class, 'update']
+    ],
+    //虎扑步行街
+    Hupu::alias             => [
+        [Hupu::class, 'update']
     ]
 ];
