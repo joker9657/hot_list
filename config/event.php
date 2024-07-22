@@ -1,6 +1,7 @@
 <?php
 
 use app\event\Hupu;
+use app\event\LaravelWeekly;
 use app\event\RuanyifengWeekly;
 use app\event\Toutiao;
 use app\event\Weibo;
@@ -26,5 +27,9 @@ return [
     //虎扑步行街
     Hupu::alias             => [
         [Hupu::class, 'update']
-    ]
+    ],
+    // Laravel 周刊
+    'laravel-weekly'        => [
+        [LaravelWeekly::class, 'update']
+    ],
 ];

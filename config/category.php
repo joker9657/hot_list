@@ -1,6 +1,7 @@
 <?php
 
 use app\event\Hupu;
+use app\event\LaravelWeekly;
 use app\event\RuanyifengWeekly;
 use app\event\Toutiao;
 use app\event\Weibo;
@@ -55,6 +56,14 @@ $category = [
         'parent_id' => 3,
         'icon'      => 'icon-hupu',
         'logo'      => '/logo/hupu.svg'
+    ],
+    [
+        'id'        => 6,
+        'title'     => 'Laravel周刊',
+        'alias'     => LaravelWeekly::alias,
+        'parent_id' => 2,
+        'icon'      => '',
+        'logo'      => ''
     ]
 ];
 return [
