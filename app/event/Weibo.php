@@ -52,7 +52,6 @@ class Weibo
                     'subtitle' => (int)$subtitle
                 ];
             })->filter()->values()->toArray();
-            dump($list);
             $list = json_encode($list, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
             Redis::set(self::alias, $list);
             Redis::set(self::alias . '-time', Carbon::now()->toDateTimeString());
