@@ -49,11 +49,9 @@ class ZhiHu
             //redis缓存 记录json数据和更新时间
             Redis::set(self::alias, $list);
             Redis::set(self::alias . '-time', Carbon::now()->toDateTimeString());
-
             dump(date('Y-m-d H:i:s') . '更新' . self::alias . '成功');
         } catch (GuzzleException|\Exception $exception) {
             dump('更新' . self::alias . '异常：' . $exception->getMessage());
-            dump($exception);
         }
     }
 }

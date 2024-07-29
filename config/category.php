@@ -2,6 +2,7 @@
 
 use app\event\Hupu;
 use app\event\LaravelWeekly;
+use app\event\Onelink;
 use app\event\RuanyifengWeekly;
 use app\event\Toutiao;
 use app\event\Weibo;
@@ -61,6 +62,14 @@ $category = [
         'id'        => 6,
         'title'     => 'Laravel周刊',
         'alias'     => LaravelWeekly::alias,
+        'parent_id' => 2,
+        'icon'      => '',
+        'logo'      => ''
+    ],
+    [
+        'id'        => 7,
+        'title'     => '1link周刊',
+        'alias'     => Onelink::alias,
         'parent_id' => 2,
         'icon'      => '',
         'logo'      => ''

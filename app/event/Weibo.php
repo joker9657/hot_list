@@ -58,7 +58,6 @@ class Weibo
             dump(date('Y-m-d H:i:s') . '更新' . self::alias . '成功');
         } catch (\Throwable $e) {
             dump('更新' . self::alias . '异常：' . $e->getMessage());
-            dump($e->getMessage());
         }
     }
 

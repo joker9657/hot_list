@@ -4,6 +4,7 @@ namespace process;
 
 use app\event\Hupu;
 use app\event\LaravelWeekly;
+use app\event\Onelink;
 use app\event\RuanyifengWeekly;
 use app\event\Toutiao;
 use app\event\Weibo;
@@ -18,6 +19,9 @@ class Task
         new Crontab('0 12 * * 5', function () {
             Event::dispatch(RuanyifengWeekly::alias, null);
         }); // 每周五中午12点执行
+        new Crontab('0 18 * * 6', function () {
+            Event::dispatch(Onelink::alias, null);
+        }); // 每周六下午6点执行
         new Crontab('0 12 * * 1', function () {
             Event::dispatch(LaravelWeekly::alias, null);
         }); // 每周一中午12点执行

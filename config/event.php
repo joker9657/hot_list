@@ -2,6 +2,7 @@
 
 use app\event\Hupu;
 use app\event\LaravelWeekly;
+use app\event\Onelink;
 use app\event\RuanyifengWeekly;
 use app\event\Toutiao;
 use app\event\Weibo;
@@ -31,5 +32,9 @@ return [
     // Laravel 周刊
     'laravel-weekly'        => [
         [LaravelWeekly::class, 'update']
+    ],
+    // 1link 周刊
+    '1link-weekly'        => [
+        [Onelink::class, 'update']
     ],
 ];
